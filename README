@@ -1,45 +1,6 @@
-== How was this made?
-% gem install tzinfo builder memcache-client rack rack-test rack-mount erubis mail text-format thor bundler i18n
+== Make Our Life
 
-% gem install rails --pre
+Intention:
 
-% rails R3BlankSlate
-
-% cd R3BlankSlate
-
-% edit Gemfile
-# Edit this Gemfile to bundle your application's dependencies.
-source 'http://gemcutter.org'
-#gem "rails", "3.0.0.beta"
-## Bundle edge rails:
-gem "rails", :git => "git://github.com/rails/rails.git"
-# ActiveRecord requires a database adapter. By default,
-# Rails has selected sqlite3.
-gem "sqlite3-ruby", :require => "sqlite3"
-gem "rails3-generators"
-
-gem "haml"
-group :test do
-  gem "rspec", ">= 2.0.0.a7"
-  gem "rspec-rails", ">= 2.0.0.a7"
-  gem "factory_girl"
-  gem "cucumber-rails", :git => "git://github.com/aslakhellesoy/cucumber-rails.git"
-  gem "capybara"
-end
-
-#edit config/application.rb
-# add these lines in the right spot (inside the block 
-# that declares |config|
- config.generators do |g|
-      g.template_engine :haml
-      g.test_framework :rspec, :fixture => true, :views => false
-      g.fixture_replacement :factory_girl, :dir => "spec/factories"
-    end
-% bundle install && bundle pack
-
-% ./script/rails g   rspec:install
-
-% ./script/rails g  cucumber:skeleton
-
-% ~/.bundle/ruby/1.8/bin/haml --rails .
+ Create a Catalog of Wants, and Track Income and Expenses.
 
