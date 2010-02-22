@@ -1,1 +1,11 @@
-%div hi
+- form_for Want.new do |f|
+  =f.label :url, "Website Address"
+  =f.text_field :url
+  =f.label :quantity , "Quantity"
+  =f.text_field :quantity
+  =f.label :cost ,"Cost"
+  =f.text_field :cost
+  =f.label :description ,"Description"
+  =f.text_area :description
+  =f.submit 'Create'
+
