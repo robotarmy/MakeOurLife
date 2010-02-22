@@ -9,10 +9,13 @@ gem "sqlite3-ruby", :require => "sqlite3"
 gem "rails3-generators"
 
 gem "haml"
+
 group :test do
+  gem "database_cleaner"
+  gem "cucumber"
+  gem "factory_girl", :git => "git://github.com/robotarmy/factory_girl.git"
   gem "rspec", ">= 2.0.0.a7"
   gem "rspec-rails", ">= 2.0.0.a7"
-  gem "factory_girl"
-  gem "cucumber-rails", :git => "git://github.com/aslakhellesoy/cucumber-rails.git"
+  gem "cucumber-rails", :git => "git://github.com/robotarmy/cucumber-rails.git"
   gem "capybara"
 end
