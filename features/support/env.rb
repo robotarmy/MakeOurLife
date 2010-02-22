@@ -7,26 +7,38 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumber Unicode support
+require 'cucumber/rails/rspec'
 require 'cucumber/rails/world'
 
 # FIX: In Rails 3 we shouldn't HAVE TO use active_record!!!
 require 'cucumber/rails/active_record'
 require 'cucumber/web/tableish'
 
-require 'webrat'
-require 'webrat/core/matchers'
+require 'capybara/rails'
+require 'capybara/cucumber'
+require 'capybara/session'
+require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links with onclick javascript handlers without using @culerity or @javascript
+# Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
+# order to ease the transition to Capybara we set the default here. If you'd
+# prefer to use XPath just remove this line and adjust any selectors in your
+# steps to use the XPath syntax.
+Capybara.default_selector = :css
+# drivers
+Capybara.default_driver = :selenium
+Capybara.javascript_driver = :selenium
 
-Webrat.configure do |config|  
-  config.mode = :rake
-  config.open_error_files = false # Set to true if you want error pages to pop up in the browser
+
+# From: http://github.com/jnicklas/capybara/issues#issue/46
+
+require 'capybara/dsl'
+
+Capybara.app = R3BlankSlate::Application
+
+module R3BlankSlate
+  class IntegrationTest
+    include Capybara
+  end
 end
-
-class Cucumber::Rails::World
-  include Webrat::Methods
-  include Webrat::Matchers
-end                
-
-
 
 # If you set this to false, any error raised from within your app will bubble 
 # up to your step definition and out to cucumber unless you catch it somewhere
