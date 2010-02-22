@@ -1,11 +1,11 @@
 Feature: Manage wants
-  In order to [goal]
-  [stakeholder]
-  wants [behaviour]
+  In order to conusme responsibly
+  Curtis
+  wants to become aware of his desires (wants)
   
   Scenario: Register new want
     Given I am on the new want page
-    When I fill in "Url" with "url 1"
+    When I fill in "Website Address" with "url 1"
     And I fill in "Quantity" with "quantity 1"
     And I fill in "Cost" with "cost 1"
     And I fill in "Description" with "description 1"
