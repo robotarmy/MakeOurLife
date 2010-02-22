@@ -7,8 +7,8 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumber Unicode support
-require 'cucumber/rails/rspec'
 require 'cucumber/rails/world'
+require 'cucumber/rails/rspec'
 
 # FIX: In Rails 3 we shouldn't HAVE TO use active_record!!!
 require 'cucumber/rails/active_record'
