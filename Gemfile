@@ -9,7 +9,7 @@ gem "sqlite3-ruby", :require => "sqlite3"
 gem "rails3-generators"
 
 gem "haml"
-
+gem "mongrel" # capybara
 group :test do
   gem "database_cleaner"
   gem "cucumber"
@@ -17,5 +17,5 @@ group :test do
   gem "rspec", ">= 2.0.0.a7"
   gem "rspec-rails", ">= 2.0.0.a7"
   gem "cucumber-rails", :git => "git://github.com/robotarmy/cucumber-rails.git"
-  gem "capybara"
+  gem "capybara" , :git => "git://github.com/robotarmy/capybara.git"
 end
